@@ -3,11 +3,7 @@
 var http = require('http');
 var hostname = '127.0.0.1';
 var port = 1337;
-var models = {
-	users:require('./models/users')(),
-	posts:require('./models/posts')(),
-	connections:require('./models/connections')(),
-};
+var models = require('./models')();
 
 var run = http.createServer(function(req, res) {
 	var segment = req.url.split('/');
