@@ -1,24 +1,21 @@
-// index.js
-
-var http = require('http');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
 var hostname = '127.0.0.1';
 var port = 1337;
-var models = require('./models')();
+var models = require('./models');
 
-var run = http.createServer(function(req, res) {
-	var segment = req.url.split('/');
-	console.log(segment[1]);
-
-	var json = {status:'not oke'};
-
-	if(models[segment[1]]){
-		json = {status:models[segment[1]].get()};
-	}
-	json = JSON.stringify(json);
-	res.writeHead(200, {'Content-Type': 'application/json'});
-	res.end(json);
+app.post('/users', function (req, res) {
+    res.json({hello:'world!'});
 });
 
-run.listen(port, hostname, function() {
-	console.log('Server running at http://'+hostname+':'+port+'/');
+app.get('/users', function (req, res) {
+    res.json({hello:'world!'});
 });
+
+app.listen(port, hostname, function () {
+    console.log('Server running at http://'+hostname+':'+port+'/');
+});
+
+console.log('end of program');
