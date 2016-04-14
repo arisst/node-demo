@@ -1,4 +1,5 @@
 # node-demo
 Simple REST API with nodejs
 
-Clone and run `npm install`
+- Import twlike.sql
+- Run `npm install`
