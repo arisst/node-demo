@@ -1,8 +1,10 @@
 var express = require('express');
+var cors = require('cors');
 var bodyParser = require('body-parser');
 var app = express();
 //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 var hostname = '127.0.0.1';
 var port = 1337;
